@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        /* Styles the main container of the to-do list */
+        .todo-container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        /* Removes default list styling for the to-do list */
+        .todo-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Styles each list item in the to-do list */
+        li {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Adds spacing for buttons in list items */
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="todo-container">
+    <h1>To-Do List</h1>
+
+    <!-- Input field to add new tasks -->
+    <input type="text" id="taskInput" placeholder="Add a new task">
+    
+    <!-- Button to add a new task to the list -->
+    <button class="add-btn" onclick="addTask()">Add Task</button>
+    
+    <!-- Unordered list to display the tasks -->
+    <ul class="todo-list" id="todoList"></ul>
+</div>
+
+<script>
+    // Placeholder for functionality to be added in future exercises
+    function addTask() {
+        //获取输入框的值
+        const taskInput = document.getElementById("taskInput");
+        const taskValue = taskInput.value.trim();
+        console.log(taskValue);
+        
+        if(taskValue){
+            //获取todoList元素
+            const ul=document.getElementById("todoList");
+            //创建li元素
+            const li=document.createElement("li");
+            //创建span元素
+            const span=document.createElement("span");
+            span.textContent=taskValue;
+            //创建Editbutton元素
+            const editButton=document.createElement("button");
+            editButton.textContent="Edit";
+            editButton.onclick = () =>editTask(span)
+            //创建Deletebutton元素
+            const deleteButton=document.createElement("button");
+            deleteButton.textContent="Delete";
+            deleteButton.onclick = () =>deleteTask(li)
+
+            //将span,editButton,deleteButton添加到li元素
+            li.appendChild(span);
+            li.appendChild(editButton);
+            li.appendChild(deleteButton);
+
+            //将li元素添加到ul元素
+            ul.appendChild(li);
+
+            //清空输入框
+            taskInput.value="";
+        }
+        else{
+            alert("Please enter a valid task!");
+        }
+    }
+
+    //editTask function
+    function editTask(span){
+        //获取输入框的值
+        const newTaskValue = prompt("Enter new task",span.textContent);
+        if(newTaskValue){
+            span.textContent=newTaskValue;
+        }
+        else{
+            alert("Please enter a valid task!");
+        }
+    }
+
+    //deleteTask function
+    function deleteTask(li){
+        const ul=document.getElementById("todoList");
+        ul.removeChild(li);
+    }
+</script>
+
+</body>
+</html>
