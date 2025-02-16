@@ -1,0 +1,65 @@
+nav{
+  background-color: #ed5484;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}
+.feedback-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    border:1px solid #ecb4c6;
+  }
+  
+  .feedback-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .feedback-form p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .feedback-form input[type="text"],
+  .feedback-form input[type="email"],
+  .feedback-form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .feedback-form textarea {
+    resize: vertical;
+  }
+  
+  .feedback-form button {
+    background-color: #ff0051;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .feedback-form button:hover {
+    background-color: #d94a77;
+  }
+  
+  /* Media query for smaller screens */
+  @media only screen and (max-width: 600px) {
+    .feedback-form {
+      width: 90%;
+    }
+  }
+  
