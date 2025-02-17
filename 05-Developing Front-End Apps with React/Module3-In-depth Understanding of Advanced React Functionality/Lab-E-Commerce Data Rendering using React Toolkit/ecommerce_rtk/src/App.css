@@ -1,0 +1,18 @@
+.app {
+  font-family: Arial, sans-serif;
+}
+
+.app-title {
+  text-align: center;
+}
+
+.app-content {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.app-heading{
+  background-color: darkslategrey;
+  color: white;
+  text-align: center;
+}
