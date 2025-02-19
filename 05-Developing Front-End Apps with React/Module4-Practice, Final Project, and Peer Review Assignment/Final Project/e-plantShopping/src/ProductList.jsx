@@ -257,6 +257,14 @@ const handleAddToCart = (plant) => {
         return { ...prevState, [plant.name]: true };
     });
 };
+
+const handleRemoveFromCart = (plantName) => {
+    setAddedToCart((prevState) => {
+      const newState = { ...prevState };
+      delete newState[plantName];
+      return newState;
+    });
+  };
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -288,7 +296,14 @@ const handleAddToCart = (plant) => {
                         <img className="product-image" src={plant.image} alt={plant.name} />
                         <div className="product-title">{plant.name}</div>
                         {/*Similarly like the above plant.name show other details like description and cost*/}
-                        <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                        <button
+                      className="product-button"
+                      onClick={() => handleAddToCart(plant)}
+                      disabled={addedToCart[plant.name]}
+                      style={addedToCart[plant.name] ? { backgroundColor: 'gray', cursor: 'not-allowed' } : {}}
+                    >
+                      {addedToCart[plant.name] ? 'Added To Cart' : 'Add to Cart'}
+                    </button>
                     </div>
                     ))}
                 </div>
@@ -296,7 +311,7 @@ const handleAddToCart = (plant) => {
             ))} 
         </div>
  ) :  (
-    <CartItem onContinueShopping={handleContinueShopping}/>
+    <CartItem onContinueShopping={handleContinueShopping} onRemoveFromCart={handleRemoveFromCart}/>
 )}
     </div>
     );
