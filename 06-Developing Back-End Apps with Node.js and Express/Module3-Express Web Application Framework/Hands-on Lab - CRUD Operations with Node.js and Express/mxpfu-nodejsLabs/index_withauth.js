@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const session = require('express-session');
 
 const app = express();
-const PORT = 5000;
+const PORT = 5001;
 
 // Initialize session middleware with options
 app.use(session({ secret: "fingerpint", resave: true, saveUninitialized: true }));
